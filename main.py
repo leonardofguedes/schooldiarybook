@@ -1,5 +1,5 @@
 class Students:
-    def __init__(self, name, age, classs):
+    def __init__(self, name='Unknow', age=0, classs=0):
         self.name = name
         self.age = age
         self.classs = classs
@@ -7,15 +7,14 @@ class Students:
 
 
     def __str__(self):
-        return self.age, self.name, self.classs
+        return self.name, self.age, self.classs
 
 
-class Classes:
-    def __init__(self, teacher, subject, time):
+class Teacher:
+    def __init__(self, teacher, subject):
         self.teacher = teacher
         self.subject = subject
-        self.time = time
 
 
     def __str__(self):
-        return self.teacher, self.subject, self.time
+        return self.teacher, self.subject
