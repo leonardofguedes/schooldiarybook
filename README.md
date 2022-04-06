@@ -1,2 +1,2 @@
 # schooldiarybook
-# A program to analyze the number of students and teachers in a school.
+# A program to receive and analyze the number of students, teachers and classes of a school.
