@@ -1,6 +1,6 @@
 from appstudent import students_total, students_classes, students_average
-from appteacher import teacher_total
-
+from appteacher import teacher_total, subject
+import statistics
 
 def show_list():
     while True:
@@ -26,15 +26,29 @@ def analysis_student():
         print('Do you want to know:\n[Number of students]\n[Classes of students]\n[Average age of students]')
         ask = int(input('Option [1][2][3]'))
         if ask == 1:
-            return print(f'Your school have {len(students_total)} students.')
+            return print(f'Your school have {len(students_total)} student(s).')
         if ask == 2:
-            return print(f'Your classes are {students_classes}.')
+            return print(f'Your registered class(es) is(are) {students_classes}.')
         if ask == 3:
-            return print(f'The average age of students is {round(sum(students_average)/len(students_average),1)} years')
+            print(f'The average age of registered student(s) is {round(statistics.mean(students_average),1)} years')
+            ask = str(input('Do you want to know how many students are above the average age? [Y][N]')).upper().strip()
+            if ask == 'Y':
+                res = filter(lambda x: x > statistics.mean(students_average), students_average)
+                return print(f'{len(list(res))} student(s)')
+            else:
+                break
+
         else:
             print('You have to choose [1], [2] or [3].')
 
 
-
 def analysis_classes():
-    return print(f'Your school have {len(class_total)} classes.')
+    for n in students_classes:
+        print(f'Class: {n}\n')
+    return print(f'Your school have {len(students_classes)} registered class(es).')
+
+
+def analysis_teachers():
+    for n in subject:
+        print(f'Subject: {n}\n')
+    return print(f'Your school have {len(subject)} subject(s) and {len(teacher_total)} teacher(s).')
