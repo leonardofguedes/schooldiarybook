@@ -4,31 +4,41 @@ from analysis import analysis_student, analysis_classes,show_list, analysis_teac
 
 def welcome():
     while True:
-        call = str(input('What do you want to add? [Teacher][Student][End adding]')).strip().capitalize()
-        if call == 'Student' or call == 'Teacher':
-            if call == 'Student':
-                add_student()
-            if call == 'Teacher':
-                add_teacher()
-        else:
-            break
+        try:
+            call = str(input('What do you want to add? [Teacher][Student][End adding]')).strip().capitalize()
+            if call == 'Student' or call == 'Teacher':
+                if call == 'Student':
+                    add_student()
+                if call == 'Teacher':
+                    add_teacher()
+            elif call == 'End adding':
+                break
+            else:
+                print('Wrong option.')
+        except:
+              break
+
 
 
 def analy():
     while True:
-        q = str(input('Do you want to analyze the added numbers? [Y][N]')).strip().upper()
-        if q == 'Y':
-            while True:
-                q1 = str(input('Classes[CL]| Students[ST]| Teachers[TE]')).upper().strip()
-                if q1 == 'CL':
-                    analysis_classes()
-                if q1 == 'ST':
-                    analysis_student()
-                if q1 == 'TE':
-                    analysis_teachers()
-                else:
-                    break
-        else:
+        try:
+            q = str(input('Do you want to analyze the added numbers? [Y][N]')).strip().upper()
+            if q == 'Y':
+                while True:
+                    q1 = str(input('Classes[CL]| Students[ST]| Teachers[TE]')).upper().strip()
+                    if q1 == 'CL':
+                        analysis_classes()
+                        break
+                    if q1 == 'ST':
+                        analysis_student()
+                        break
+                    if q1 == 'TE':
+                        analysis_teachers()
+                        break
+            elif q == 'N':
+                break
+        except:
             break
 
 
@@ -40,6 +50,3 @@ def tela():
         con = str(input('Continue with adding? -> [Y][N]')).strip().upper()
         if con == 'N':
             break
-
-
-
