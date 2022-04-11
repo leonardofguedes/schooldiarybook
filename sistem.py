@@ -1,6 +1,9 @@
-from appstudent import add_student, students_total
-from appteacher import add_teacher, teacher_total
-from analysis import analysis_student, analysis_classes,show_list, analysis_teachers
+from appstudent import add_student
+from appteacher import add_teacher
+from show_list import show_list
+from analysis_student import analysis_student
+from analysis_classes import analysis_classes
+from analysis_teacher import analysis_teachers
 
 def welcome():
     while True:
@@ -50,3 +53,5 @@ def tela():
         con = str(input('Continue with adding? -> [Y][N]')).strip().upper()
         if con == 'N':
             break
+
+

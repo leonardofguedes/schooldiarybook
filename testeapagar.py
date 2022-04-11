@@ -1,0 +1,6 @@
+dic = dict()
+dic.update({"leo":"lo"})
+dic.update(({"leon":"ba"}))
+dic.update({'paul':'ola'})
+d = str(input('nome'))
+print(dic[d])
